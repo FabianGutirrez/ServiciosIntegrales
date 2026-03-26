@@ -18,10 +18,10 @@ const services = [
     title: "Metalurgia y Soldadura",
     icon: <Wrench className="h-8 w-8" />,
     items: [
-      "Soldaduras en estructuras metálicas (Mig-Tig Acero Inoxidable)",
+      "Soldaduras en estructuras metálicas (Mig-Tig) Acero carbono, Inoxidable y Aluminio",
       "Fabricación de estructuras metálicas",
-      "Cortinas Metálicas y de Seguridad: Fabricación y Mantención",
-      "Cierres perimetrales de seguridad (Rejas, Cortinas, Malla Acma, Panderetas)",
+      "Cortinas Metálicas de Seguridad: Fabricación y Mantención",
+      "Cierres perimetrales de seguridad (Rejas, Malla Acma, Panderetas, Consertinas)",
       "Bolardos de Seguridad (Fijos y Desmontables)"
     ],
     color: "bg-blue-50 text-blue-600"
@@ -32,7 +32,9 @@ const services = [
     items: [
       "Fabricación de Portones (Corredera y Batiente)",
       "Puertas Automáticas: Reparación, Fabricación y Repuestos",
-      "Automatización de Portones, Accesos y Barreras Automáticas"
+      "Automatización de Portones, Accesos y Barreras Automáticas",
+      "Cortinas Metalicas Automaticas y Manuales",
+      "Reparacion y Venta de Repuestos"
     ],
     color: "bg-orange-50 text-orange-600"
   },
@@ -56,7 +58,8 @@ const services = [
       "Gasfitería profesional (PPR, PVC, COBRE)",
       "Instalaciones eléctricas certificadas",
       "Termos eléctricos: Reparación y Mantención",
-      "Destape de ductos de desagües con varilla"
+      "Destape de ductos de desagües con varilla",
+      "Destape de tuberias con Hidrojet",
     ],
     color: "bg-yellow-50 text-yellow-600"
   },
@@ -66,7 +69,8 @@ const services = [
     items: [
       "Reparaciones lineales de cajas",
       "Mantención de check-out",
-      "Mantención industrial integral"
+      "Mantención industrial integral",
+      "Instalación de lamas de pvc"
     ],
     color: "bg-indigo-50 text-indigo-600"
   },
