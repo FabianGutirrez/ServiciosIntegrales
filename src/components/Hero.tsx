@@ -25,7 +25,7 @@ export default function Hero() {
           className="max-w-3xl"
         >
           <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-            Servicios Integrales de <span className="text-orange-500">Construcción y Electricidad</span>Obras civiles
+            Servicios Integrales de <span className="text-orange-500">Construcción y Electricidad</span> Obras civiles
           </h1>
           <p className="text-xl text-slate-200 mb-10 leading-relaxed">
             Especialistas en estructuras metálicas, portones automáticos, instalaciones y reparaciones.
