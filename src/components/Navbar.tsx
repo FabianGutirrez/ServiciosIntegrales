@@ -31,19 +31,21 @@ export default function Navbar() {
   const isHome = location.pathname === '/';
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center group">
-            <img 
-              src="/logos/logo.png" 
-              alt="FG Servicios Integrales Logo" 
-              className="h-39 w-auto object-contain transition-transform group-hover:scale-105"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://picsum.photos/seed/fg-logo/300/150";
-              }}
-            />
-          </Link>
+        <div className="flex justify-between items-center h-20">
+          <div className="relative w-48 h-full">
+            <Link to="/" className="absolute top-1/2 -translate-y-1/2 left-0 group z-10">
+              <img 
+                src="/logos/logo.png" 
+                alt="FG Servicios Integrales Logo" 
+                className="h-[152px] w-auto object-contain transition-transform group-hover:scale-105"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "https://picsum.photos/seed/fg-logo/400/450";
+                }}
+              />
+            </Link>
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
