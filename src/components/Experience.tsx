@@ -33,7 +33,7 @@ export default function Experience() {
             Trabajos y Experiencia
           </motion.h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Más de 500 proyectos realizados con éxito en industrias, empresas y hogares de toda la Región Metropolitana.
+            Más de 500 proyectos realizados con éxito en retail, empresas y hogares de toda la V region.
           </p>
         </div>
 
