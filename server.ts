@@ -6,27 +6,25 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const app = express();
+app.use(express.json());
+
+// API Routes
+app.post("/api/contact", (req, res) => {
+  const { name, phone, service, message } = req.body;
+  console.log("Received contact form submission:", { name, phone, service, message });
+  
+  res.status(200).json({ 
+    success: true, 
+    message: "Mensaje recibido correctamente. Nos pondremos en contacto pronto." 
+  });
+});
+
 async function startServer() {
-  const app = express();
   const PORT = process.env.PORT || 3000;
 
-  app.use(express.json());
-
-  // API Routes
-  app.post("/api/contact", (req, res) => {
-    const { name, phone, service, message } = req.body;
-    console.log("Received contact form submission:", { name, phone, service, message });
-    
-    // Here you would typically send an email or save to a database
-    // For now, we'll just return a success message
-    res.status(200).json({ 
-      success: true, 
-      message: "Mensaje recibido correctamente. Nos pondremos en contacto pronto." 
-    });
-  });
-
   // Vite middleware for development
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -40,9 +38,14 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  // Only listen if not on Vercel
+  if (!process.env.VERCEL) {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  }
 }
 
 startServer();
+
+export default app;
