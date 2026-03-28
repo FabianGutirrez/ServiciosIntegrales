@@ -2,51 +2,203 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Maximize2, ExternalLink, Filter } from 'lucide-react';
 
-const categories = ['Todos', 'Metalurgia', 'Automatización', 'Construcción', 'Industrial'];
+const categories = ['Todos', 'Metalurgia', 'Automatización', 'Construcción', 'Industrial', 'Climatización'];
 
 const projects = [
-  {
+    {
     id: 1,
-    title: 'Estructura Galpón Industrial',
-    category: 'Metalurgia',
-    description: 'Diseño y montaje de estructura metálica de alta resistencia para centro logístico.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800',
+    title: 'Montaje de Panel Eléctrico',
+    category: 'Industrial',
+    description: 'Instalación y cableado de tableros eléctricos de control para procesos industriales.',
+    image: '/images/panel electrico.jpeg',
   },
-  {
+
+    {
     id: 2,
+    title: 'Instalación de Concertina de Seguridad',
+    category: 'Metalurgia',
+    description: 'Instalación de concertina de acero galvanizado para refuerzo de seguridad perimetral.',
+    image: '/images/concertina.jpeg',
+  },
+
+    {
+    id: 3,
+    title: 'Mantención Motor Extractor de Aire',
+    category: 'Industrial',
+    description: 'Servicio técnico y limpieza de motores extractores de aire industriales en techumbres.',
+    image: '/images/motor-estractor.jpeg',
+  },
+
+    {
+    id: 4,
+    title: 'Instalación Bolardos de Seguridad',
+    category: 'Metalurgia',
+    description: 'Montaje de bolardos de alta resistencia fijos y desmontables para protección de perímetros.',
+    image: '/images/bolardos.png',
+  },
+
+    {
+    id: 5,
+    title: 'Reparación Puerta Frigorífica',
+    category: 'Industrial',
+    description: 'Ajuste, reparación de herrajes y sistemas de cierre en cámaras de frío industriales.',
+    image: '/images/puertacamara.png',
+  },
+
+    {
+    id: 6,
+    title: 'Instalación de Cortinas de Lamas',
+    category: 'Industrial',
+    description: 'Montaje de cortinas de lamas PVC para control de temperatura y polvo en accesos industriales.',
+    image: '/images/lamas3.png',
+  },
+
+    {
+    id: 7,
+    title: 'Reparación Lineal de Cajas',
+    category: 'Industrial',
+    description: 'Mantenimiento y reparación de muebles de cajas en supermercados para optimizar la atención.',
+    image: '/images/cajas.png',
+  },
+
+    {
+    id: 8,
+    title: 'Cerradura Gabinetes Eléctricos',
+    category: 'Industrial',
+    description: 'Instalación y reparación de sistemas de cierre en tableros eléctricos industriales para control de acceso.',
+    image: '/images/purtaspanel.png',
+  },
+
+    {
+    id: 9,
     title: 'Automatización Portón Corredera',
     category: 'Automatización',
-    description: 'Instalación de motor de alto tráfico con sistema de apertura remota por smartphone.',
-    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800',
+    description: 'Instalación de motor de alto tráfico con sistema de apertura remota.',
+    image: '/images/porton1.jpeg',
   },
-  {
-    id: 3,
-    title: 'Remodelación Oficinas Corporativas',
-    category: 'Construcción',
-    description: 'Terminaciones finas y tabiquería para oficinas de planta libre.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
+
+    {
+    id: 10,
+    title: 'Reparación de Motor para Portón',
+    category: 'Automatización',
+    description: 'Mantenimiento y cambio de motores para portones automáticos de alto tráfico.',
+    image: '/images/porton.jpeg',
   },
-  {
-    id: 4,
-    title: 'Mantención Puente Grúa',
-    category: 'Industrial',
-    description: 'Servicio técnico preventivo y correctivo para equipos de levante industrial.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800',
+
+    {
+    id: 11,
+    title: 'Instalación de Central de Cortina',
+    category: 'Automatización',
+    description: 'Configuración y montaje de central electrónica para el control de cortinas metálicas.',
+    image: '/images/centalmotorcortina.png',
   },
-  {
-    id: 5,
-    title: 'Escalera de Emergencia Certificada',
-    category: 'Metalurgia',
-    description: 'Fabricación de escalera de evacuación bajo normativa vigente de seguridad.',
-    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=800',
+
+    {
+    id: 12,
+    title: 'Automatización de Portón Batiente',
+    category: 'Automatización',
+    description: 'Instalación de brazos hidráulicos para la automatización de portones de dos hojas.',
+    image: '/images/brazos.png',
   },
-  {
-    id: 6,
+
+    {
+    id: 13,
+    title: 'Reparación Mamparas de Acceso',
+    category: 'Automatización',
+    description: 'Mantenimiento y reparación integral de puertas automáticas y mamparas de vidrio.',
+    image: '/images/reparacion.png',
+  },
+
+    {
+    id: 14,
     title: 'Cierre Perimetral Automatizado',
     category: 'Automatización',
     description: 'Sistema de seguridad perimetral con portones batientes sincronizados.',
-    image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&q=80&w=800',
+    image: '/images/cierre.png',
   },
+
+    {
+    id: 15,
+    title: 'Reparación de Cortina Metálica',
+    category: 'Automatizacion',
+    description: 'Servicio de reparación y ajuste de cortinas metálicas de seguridad para locales comerciales.',
+    image: '/images/cortinametalica.jpeg',
+  },
+
+    {
+    id: 16,
+    title: 'Limpieza Técnica Aire Acondicionado',
+    category: 'Climatización',
+    description: 'Mantenimiento profundo y desinfección de unidades internas para optimizar calidad de aire.',
+    image: '/images/aire.png',
+  },
+  {
+    id: 17,
+    title: 'Mantención Unidad Condensadora Industrial',
+    category: 'Climatización',
+    description: 'Limpieza y revisión de sistemas de enfriamiento industrial de gran escala.',
+    image: '/images/condensadora.png',
+  },
+
+  {
+    id: 18,
+    title: 'Servicio Técnico LG Smart Inverter',
+    category: 'Climatización',
+    description: 'Mantenimiento preventivo de equipos de alta eficiencia energética.',
+    image: '/images/inverter.png',
+  },
+
+    {
+    id: 19,
+    title: 'Reparación Termo Eléctrico',
+    category: 'Climatizacion',
+    description: 'Servicio técnico especializado en termos eléctricos industriales de gran capacidad.',
+    image: '/images/termo.png',
+  },
+
+    {
+    id: 20,
+    title: 'Revestimiento Epóxico Industrial',
+    category: 'Construcción',
+    description: 'Aplicación de pintura epóxica en pisos para máxima durabilidad y limpieza en áreas de procesos.',
+    image: '/images/piso-epoxico.png',
+  },
+
+    {
+    id: 21,
+    title: 'Revestimiento Epóxico Industrial',
+    category: 'Construcción',
+    description: 'Aplicación de pintura epóxica en pisos para máxima durabilidad y limpieza en áreas de procesos.',
+    image: '/images/piso1.png',
+  },
+
+    {
+    id: 22,
+    title: 'Revestimiento Epóxico Industrial',
+    category: 'Construcción',
+    description: 'Aplicación de pintura epóxica en pisos para máxima durabilidad y limpieza en áreas de procesos.',
+    image: '/images/piso.png',
+  },
+
+    {
+    id: 23,
+    title: 'Escalera Estructural Industrial',
+    category: 'Metalurgia',
+    description: 'Fabricación y montaje de escalera metálica con peldaños antideslizantes y barandas de seguridad.',
+    image: '/images/escalera estructural.jpeg',
+  },
+
+    {
+    id: 15,
+    title: 'Reparación  e instalacion de Cortina Metálica',
+    category: 'Automatizacion',
+    description: 'Servicio de reparación, instalacion y ajuste de cortinas metálicas de seguridad para locales comerciales.',
+    image: '/images/metalica.png',
+  },
+
+
+
+
 ];
 
 export default function Projects() {
