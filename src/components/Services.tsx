@@ -24,7 +24,8 @@ const services = [
       "Cierres perimetrales de seguridad (Rejas, Malla Acma, Panderetas, Consertinas)",
       "Bolardos de Seguridad (Fijos y Desmontables)"
     ],
-    color: "bg-blue-50 text-blue-600"
+    color: "bg-blue-50 text-blue-600",
+    description: "Expertos en metalurgia para proyectos industriales y residenciales en todo Chile. Realizamos soldaduras de alta precisión y montajes estructurales."
   },
   {
     title: "Automatización y Portones",
@@ -36,7 +37,8 @@ const services = [
       "Cortinas Metalicas Automaticas y Manuales",
       "Reparacion y Venta de Repuestos"
     ],
-    color: "bg-orange-50 text-orange-600"
+    color: "bg-orange-50 text-orange-600",
+    description: "Líderes en automatización de portones eléctricos. Brindamos seguridad y comodidad con tecnología de punta para su hogar o condominio."
   },
   {
     title: "Obras Civiles y Reparaciones",
@@ -49,10 +51,11 @@ const services = [
       "Revestimiento epóxico (Pisos de sala de procesos y Cámaras Frigoríficas)",
       "Pintura en general"
     ],
-    color: "bg-slate-50 text-slate-600"
+    color: "bg-slate-50 text-slate-600",
+    description: "Ejecutamos obras civiles menores y remodelaciones con acabados de alta calidad. Reparamos filtraciones y renovamos sus espacios."
   },
   {
-    title: "Instalaciones y Gasfitería",
+    title: "Gasfitería e Instalaciones Eléctricas",
     icon: <Zap className="h-8 w-8" />,
     items: [
       "Gasfitería profesional (PPR, PVC, COBRE)",
@@ -61,10 +64,11 @@ const services = [
       "Destape de ductos de desagües con varilla",
       "Destape de tuberias con Hidrojet",
     ],
-    color: "bg-yellow-50 text-yellow-600"
+    color: "bg-yellow-50 text-yellow-600",
+    description: "Servicios de emergencia en gasfitería y electricidad. Contamos con técnicos expertos para soluciones rápidas y garantizadas."
   },
   {
-    title: "Mantención Comercial",
+    title: "Mantención Industrial y Comercial",
     icon: <LayoutGrid className="h-8 w-8" />,
     items: [
       "Reparaciones lineales de cajas",
@@ -72,7 +76,8 @@ const services = [
       "Mantención industrial integral",
       "Instalación de lamas de pvc"
     ],
-    color: "bg-indigo-50 text-indigo-600"
+    color: "bg-indigo-50 text-indigo-600",
+    description: "Aliados estratégicos para la mantención de su negocio. Aseguramos la continuidad operacional de sus instalaciones comerciales."
   },
   {
     title: "Servicios de Terreno",

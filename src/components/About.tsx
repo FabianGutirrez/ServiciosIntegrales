@@ -23,10 +23,18 @@ export default function About() {
               Sobre <span className="text-orange-600">Nosotros</span>
             </h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Somos una empresa dedicada a entregar soluciones integrales en construcción, mantención y servicios industriales. Nos especializamos en trabajos de alta calidad, adaptándonos a las necesidades de cada cliente, ya sea para el hogar, comercio o grandes industrias.
+              Somos una empresa líder en <strong>Chile</strong> dedicada a entregar 
+              <strong>soluciones integrales en construcción, mantención industrial y servicios 
+                comerciales</strong>. Nos especializamos en trabajos de alta calidad, adaptándonos a 
+                las necesidades de cada cliente, desde reparaciones en el hogar hasta grandes 
+                proyectos de infraestructura industrial.
             </p>
             <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              Con años de experiencia en el mercado chileno, hemos consolidado un equipo de profesionales expertos en diversas áreas, desde la soldadura de precisión hasta la automatización avanzada de accesos.
+              Con años de experiencia en el mercado nacional, hemos consolidado un equipo de 
+              profesionales expertos en diversas áreas tales como <strong>metalurgia de precisión, automatización avanzada de 
+                accesos, climatización eficiente y obras civiles menores</strong>. Nuestra misión es 
+                garantizar la seguridad y funcionalidad de sus espacios con un servicio técnico de 
+                excelencia.
             </p>
             
             <div className="grid grid-cols-2 gap-6">
