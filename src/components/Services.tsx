@@ -101,10 +101,11 @@ export default function Services() {
             viewport={{ once: true }}
             className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-4"
           >
-            Nuestros Servicios
+            Servicios Profesionales de Construcción y Mantención
           </motion.h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Ofrecemos soluciones integrales con los más altos estándares de calidad y seguridad para su hogar o empresa.
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            En <strong>Soluciones Integrales</strong> somos especialistas en brindar respuestas rápidas y eficientes en 
+            metalurgia, automatización de portones, climatización y obras civiles en todo Chile.
           </p>
         </div>
 
@@ -116,48 +117,75 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-8 rounded-2xl border border-slate-100 hover:border-orange-200 hover:shadow-xl transition-all group bg-white"
+              className="p-8 rounded-3xl border border-slate-100 hover:border-orange-200 hover:shadow-2xl transition-all group bg-white flex flex-col h-full"
             >
-              <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${service.color}`}>
+              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${service.color}`}>
                 {service.icon}
               </div>
-              <h3 className="font-display text-xl font-bold text-slate-900 mb-4">{service.title}</h3>
-              <ul className="space-y-2 mb-8">
+              <h3 className="font-display text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
+              <p className="text-slate-500 text-sm mb-6 italic">
+                {service.description}
+              </p>
+              <ul className="space-y-3 mb-8 flex-grow">
                 {service.items.map((item, i) => (
-                  <li key={i} className="text-slate-600 flex items-start gap-2">
-                    <span className="text-orange-500 mt-1">•</span>
+                  <li key={i} className="text-slate-600 flex items-start gap-3 text-sm leading-relaxed">
+                    <span className="text-orange-500 font-bold">•</span>
                     {item}
                   </li>
                 ))}
               </ul>
               <Link 
                 to={`/contacto?servicio=${encodeURIComponent(service.title)}`}
-                className="text-orange-600 font-bold flex items-center gap-2 hover:gap-3 transition-all"
+                className="text-orange-600 font-bold flex items-center gap-2 hover:gap-4 transition-all mt-auto border-t border-slate-50 pt-6"
               >
-                Cotizar este servicio <ArrowRight className="h-4 w-4" />
+                Cotizar servicio profesional <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-20 bg-slate-900 rounded-3xl p-12 text-center relative overflow-hidden">
+        {/* SEO Keyword Section (Visible but styled as secondary info) */}
+        <div className="mt-24 pt-12 border-t border-slate-100">
+          <h4 className="text-slate-900 font-bold mb-6 text-center uppercase tracking-widest text-sm">Especialidades y Áreas de Cobertura</h4>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs text-slate-400 text-center max-w-4xl mx-auto">
+            <span>Instalación de portones eléctricos en Santiago</span>
+            <span>Reparación de motores para portones BFT</span>
+            <span>Soldador a domicilio Chile</span>
+            <span>Estructuras metálicas para galpones industriales</span>
+            <span>Mantención de aire acondicionado industrial</span>
+            <span>Servicio técnico de climatización multimarca</span>
+            <span>Obras civiles menores y remodelaciones</span>
+            <span>Gasfitería de emergencia 24/7</span>
+            <span>Electricista certificado SEC</span>
+            <span>Pintura de fachadas de edificios</span>
+            <span>Instalación de concertinas de seguridad perimetral</span>
+            <span>Revestimiento epóxico para pisos de alto tráfico</span>
+            <span>Reparación de filtraciones en techumbres</span>
+            <span>Automatización de accesos vehiculares</span>
+          </div>
+        </div>
+
+        <div className="mt-20 bg-slate-900 rounded-[2.5rem] p-12 text-center relative overflow-hidden shadow-2xl shadow-orange-900/20">
           <div className="relative z-10">
-            <h3 className="font-display text-3xl font-bold text-white mb-6">¿Necesitas una solución rápida y profesional?</h3>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">¿Busca un presupuesto para su proyecto?</h3>
+            <p className="text-slate-400 mb-10 max-w-2xl mx-auto">
+              Contáctenos hoy mismo para recibir una asesoría técnica personalizada y un presupuesto detallado sin compromiso.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link 
                 to="/contacto" 
-                className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 transition-colors"
+                className="bg-orange-600 text-white px-10 py-5 rounded-full font-bold hover:bg-orange-700 transition-all hover:scale-105 shadow-lg shadow-orange-600/30"
               >
-                Solicitar cotización
+                Solicitar presupuesto gratis
               </Link>
-              <a href="https://wa.me/56994605684" className="bg-green-600 text-white px-8 py-4 rounded-full font-bold hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                <MessageCircle className="h-5 w-5" /> Contactar por WhatsApp
+              <a href="https://wa.me/56994605684" className="bg-green-600 text-white px-10 py-5 rounded-full font-bold hover:bg-green-700 transition-all hover:scale-105 shadow-lg shadow-green-600/30 flex items-center justify-center gap-3">
+                <MessageCircle className="h-6 w-6" /> WhatsApp Directo
               </a>
             </div>
           </div>
           {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-orange-600/20 blur-3xl rounded-full -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 blur-3xl rounded-full -ml-32 -mb-32"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/10 blur-[100px] rounded-full -mr-48 -mt-48"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 blur-[100px] rounded-full -ml-48 -mb-48"></div>
         </div>
       </div>
     </section>
