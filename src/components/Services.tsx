@@ -148,7 +148,7 @@ export default function Services() {
         <div className="mt-24 pt-12 border-t border-slate-100">
           <h4 className="text-slate-900 font-bold mb-6 text-center uppercase tracking-widest text-sm">Especialidades y Áreas de Cobertura</h4>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs text-slate-400 text-center max-w-4xl mx-auto">
-            <span>Instalación de portones eléctricos en Santiago</span>
+            <span>Instalación de portones eléctricos</span>
             <span>Reparación de motores para portones BFT</span>
             <span>Soldador a domicilio Chile</span>
             <span>Estructuras metálicas para galpones industriales</span>
