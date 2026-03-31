@@ -39,7 +39,7 @@ export default function Navbar() {
               <img 
                 src="/logos/logo.png" 
                 alt="FG Servicios Integrales Logo" 
-                className="h-[125px] w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "https://picsum.photos/seed/fg-logo/400/450";
                 }}
