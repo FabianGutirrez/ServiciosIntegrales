@@ -12,7 +12,7 @@ export default function Footer() {
               <img 
                 src="/logos/logob.png" 
                 alt="FG Servicios Integrales Logo" 
-                className="h-50 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-60 w-auto object-contain transition-transform group-hover:scale-105"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "https://picsum.photos/seed/fg-logo/300/150";
                 }}
