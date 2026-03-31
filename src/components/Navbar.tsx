@@ -34,7 +34,7 @@ export default function Navbar() {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="relative w-48 h-full">
+          <div className="relative w-49 h-full">
             <Link to="/" className="absolute top-1/2 -translate-y-1/2 left-0 group z-10">
               <img 
                 src="/logos/logo.png" 
