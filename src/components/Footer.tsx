@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-6 group">
               <img 
-                src="/logos/logo.png" 
+                src="/logos/logob.png" 
                 alt="FG Servicios Integrales Logo" 
                 className="h-32 w-auto object-contain transition-transform group-hover:scale-105"
                 onError={(e) => {
