@@ -2,10 +2,12 @@ import express from "express";
 import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import dotenv from "dotenv";
 
 dotenv.config();
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,63 +20,47 @@ app.post("/api/contact", async (req, res) => {
   const { name, phone, service, message } = req.body;
   console.log("Received contact form submission:", { name, phone, service, message });
 
-  const emailUser = process.env.EMAIL_USER;
-  const emailPass = process.env.EMAIL_PASS;
+  const resendApiKey = process.env.RESEND_API_KEY;
   const emailTo = process.env.EMAIL_TO || "fg.serviciosintegrales@hotmail.es";
-  const emailHost = process.env.EMAIL_HOST || "smtp.office365.com";
-  const emailPort = Number(process.env.EMAIL_PORT) || 587;
 
-  if (!emailUser || !emailPass) {
-    console.warn("Email configuration missing. Logging to console instead.");
+  if (!resendApiKey) {
+    console.warn("RESEND_API_KEY missing. Logging to console instead.");
     return res.status(200).json({ 
       success: true, 
-      message: "Solicitud recibida (modo demo). Configure EMAIL_USER y EMAIL_PASS para enviar correos reales." 
+      message: "Solicitud recibida (modo demo). Configure RESEND_API_KEY para enviar correos reales." 
     });
   }
 
   try {
-    console.log(`Attempting to send email from: ${emailUser} to: ${emailTo}`);
+    console.log(`Enviando correo vía Resend a: ${emailTo}`);
     
-    const transporter = nodemailer.createTransport({
-      host: "smtp.office365.com",
-      port: 587,
-      secure: false, // STARTTLS
-      auth: {
-        user: emailUser,
-        pass: emailPass,
-      },
-      tls: {
-        rejectUnauthorized: false // Ayuda con algunos problemas de certificados en entornos cloud
-      }
-    });
-
-    const mailOptions = {
-      from: `"FG Servicios Integrales" <${emailUser}>`,
-      to: emailTo,
-      replyTo: emailUser,
+    const { data, error } = await resend.emails.send({
+      from: 'FG Servicios <contacto@fgserviciosintegrales.cl>',
+      to: [emailTo],
       subject: `Nueva Solicitud de Cotización: ${service}`,
-      text: `
-        Nombre/Empresa: ${name}
-        Teléfono: ${phone}
-        Servicio: ${service}
-        
-        Descripción del Proyecto:
-        ${message}
-      `,
+      replyTo: name, // Opcional: si tienes el email del remitente podrías ponerlo aquí
       html: `
-        <div style="font-family: sans-serif; padding: 20px; color: #333;">
-          <h2 style="color: #ea580c;">Nueva Solicitud de Cotización</h2>
-          <p><strong>Nombre/Empresa:</strong> ${name}</p>
-          <p><strong>Teléfono:</strong> ${phone}</p>
-          <p><strong>Servicio:</strong> ${service}</p>
-          <hr style="border: 1px solid #eee; margin: 20px 0;">
-          <p><strong>Descripción del Proyecto:</strong></p>
-          <p style="white-space: pre-wrap;">${message}</p>
+        <div style="font-family: sans-serif; padding: 20px; color: #333; border: 1px solid #eee; border-radius: 8px;">
+          <h2 style="color: #ea580c; border-bottom: 2px solid #ea580c; padding-bottom: 10px;">Nueva Solicitud de Cotización</h2>
+          <p style="font-size: 16px;"><strong>Nombre/Empresa:</strong> ${name}</p>
+          <p style="font-size: 16px;"><strong>Teléfono:</strong> ${phone}</p>
+          <p style="font-size: 16px;"><strong>Servicio:</strong> ${service}</p>
+          <div style="background: #f9fafb; padding: 15px; border-radius: 4px; margin-top: 20px;">
+            <p style="font-weight: bold; margin-top: 0;">Descripción del Proyecto:</p>
+            <p style="white-space: pre-wrap; margin-bottom: 0;">${message}</p>
+          </div>
+          <p style="font-size: 12px; color: #666; margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px;">
+            Este es un mensaje automático enviado desde el formulario de contacto de FG Servicios Integrales.
+          </p>
         </div>
       `,
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
+    if (error) {
+      throw error;
+    }
+
+    console.log("Email enviado exitosamente:", data);
     
     res.status(200).json({ 
       success: true, 
