@@ -7,6 +7,7 @@ export default function Contact() {
   const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     service: 'Estructuras y Soldaduras',
     message: ''
@@ -36,7 +37,7 @@ export default function Contact() {
       if (data.success) {
         setStatus('success');
         setResponseMsg(data.message);
-        setFormData({ name: '', phone: '', service: 'Estructuras y Soldaduras', message: '' });
+        setFormData({ name: '', email: '', phone: '', service: 'Estructuras y Soldaduras', message: '' });
       } else {
         throw new Error('Error al enviar el mensaje');
       }
@@ -158,6 +159,20 @@ export default function Contact() {
                     />
                   </div>
                   <div className="space-y-2">
+                    <label className="text-sm font-semibold text-slate-700">Correo Electrónico</label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="Ej: juan.perez@empresa.cl"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
                     <label className="text-sm font-semibold text-slate-700">Teléfono de Contacto</label>
                     <input
                       type="tel"
@@ -168,23 +183,22 @@ export default function Contact() {
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
                     />
                   </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700">Servicio de Interés</label>
-                  <select 
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all appearance-none bg-white"
-                  >
-                    <option>Metalurgia y Soldadura</option>
-                    <option>Portones y Automatización</option>
-                    <option>Construcción y Terminaciones</option>
-                    <option>Instalaciones Eléctricas/Gas</option>
-                    <option>Mantención Industrial</option>
-                    <option>Obras Civiles</option>
-                    <option>Otro requerimiento</option>
-                  </select>
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-slate-700">Servicio de Interés</label>
+                    <select 
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all appearance-none bg-white"
+                    >
+                      <option>Metalurgia y Soldadura</option>
+                      <option>Portones y Automatización</option>
+                      <option>Construcción y Terminaciones</option>
+                      <option>Instalaciones Eléctricas/Gas</option>
+                      <option>Mantención Industrial</option>
+                      <option>Obras Civiles</option>
+                      <option>Otro requerimiento</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="space-y-2">

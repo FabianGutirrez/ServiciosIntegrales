@@ -17,8 +17,8 @@ app.use(express.json());
 
 // API Routes
 app.post("/api/contact", async (req, res) => {
-  const { name, phone, service, message } = req.body;
-  console.log("Received contact form submission:", { name, phone, service, message });
+  const { name, email, phone, service, message } = req.body;
+  console.log("Received contact form submission:", { name, email, phone, service, message });
 
   const resendApiKey = process.env.RESEND_API_KEY;
   const emailTo = process.env.EMAIL_TO || "fg.serviciosintegrales@hotmail.es";
@@ -38,11 +38,12 @@ app.post("/api/contact", async (req, res) => {
       from: 'FG Servicios <contacto@fgserviciosintegrales.cl>',
       to: [emailTo],
       subject: `Nueva Solicitud de Cotización: ${service}`,
-      replyTo: name, // Opcional: si tienes el email del remitente podrías ponerlo aquí
+      replyTo: email,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333; border: 1px solid #eee; border-radius: 8px;">
           <h2 style="color: #ea580c; border-bottom: 2px solid #ea580c; padding-bottom: 10px;">Nueva Solicitud de Cotización</h2>
           <p style="font-size: 16px;"><strong>Nombre/Empresa:</strong> ${name}</p>
+          <p style="font-size: 16px;"><strong>Correo Electrónico:</strong> ${email}</p>
           <p style="font-size: 16px;"><strong>Teléfono:</strong> ${phone}</p>
           <p style="font-size: 16px;"><strong>Servicio:</strong> ${service}</p>
           <div style="background: #f9fafb; padding: 15px; border-radius: 4px; margin-top: 20px;">
